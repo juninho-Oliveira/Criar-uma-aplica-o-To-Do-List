@@ -23,7 +23,8 @@
 
         function adicionar() {
             let valorTarefas = document.getElementById("adicionarTarefa").value;
-            tarefas.push(valorTarefas);
+
+            tarefas.push({nome: valorTarefas});
 
             //document.getElementById('lista').innerHTML = tarefas
 
@@ -31,7 +32,7 @@
             button.textContent = "Concluir" // add nome do botão
 
             const li = document.createElement('li');// criando li
-            li.textContent = valorTarefas
+            
 
             li.id = 'li' + idCount;
             li.style.color = "green"
@@ -55,9 +56,13 @@
 
             }
             
-            let nomeLocalStorage = localStorage.setItem('nome', JSON.stringify(li.value));
+            let nomeLocalStorage = localStorage.setItem('nome', JSON.stringify(tarefas));
             let valor = localStorage.getItem('nome')
-
+ 
+           for (i=0; i< tarefas.length; i++) {
+            
+                li.textContent = tarefas[i].nome
+           }
 
             colunaAcao.appendChild(li)
             colunaAcao.appendChild(button)
