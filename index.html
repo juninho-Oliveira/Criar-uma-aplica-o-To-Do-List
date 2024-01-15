@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+</head>
+<body>
+    <main >
+        <h1>To-Do List</h1>
+        <input type="text" id="adicionarTarefa" placeholder="Nome da tarefa..."><br><br>
+        <button onclick="adicionar()">Adicionar Tarefa</button>
+        <h2 id="lista">Lista de tarefas</h2>
+        <ul id="colunaAcao">
+
+        </ul>
+    </main>
+    <script>
+        let tarefas = []
+        let idCount = 0;
+
+        function adicionar() {
+            let valorTarefas = document.getElementById("adicionarTarefa").value;
+            tarefas.push(valorTarefas);
+            
+           // document.getElementById('lista').innerHTML = tarefas
+
+            const button = document.createElement("button");//criando botão
+            button.textContent = "Concluir" // add nome do botão
+
+            const li = document.createElement('li');// criando li
+            li.textContent = valorTarefas
+
+            li.id = 'li' + idCount;
+
+            let VF = false; 
+
+
+            button.onclick = function () {
+                
+                let cor = document.getElementById(li.id);
+                
+                if (VF) {
+                    cor.style.color = "red"
+                    VF = false;
+                } else {
+                    cor.style.color = "green"
+                    VF = true;
+                }
+                  
+            }
+
+            colunaAcao.appendChild(li)
+            colunaAcao.appendChild(button)
+
+            idCount++;
+        }
+    </script>
+</body>
+</html>
+
+<!--Criar uma aplicação To-Do List:
+
+Entrada de Tarefa:
+
+Ter um campo de entrada de texto onde o usuário pode digitar uma nova tarefa.
+Adicionar Tarefa:
+
+Ter um botão "Adicionar" que, ao ser clicado, adiciona a tarefa digitada à lista.
+Lista de Tarefas:
+
+Exibir a lista de tarefas que foram adicionadas.
+Cada item da lista deve conter o texto da tarefa e um botão "Concluir".
+Concluir Tarefa:
+
+Ao clicar no botão "Concluir" ao lado de uma tarefa, o texto da tarefa deve mudar para verde.
+Se clicar novame!-->
