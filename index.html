@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>To-Do List</title>
 </head>
+
 <body>
-    <main >
+    <main>
         <h1>To-Do List</h1>
         <input type="text" id="adicionarTarefa" onfocus="this.value='';" placeholder="Nome da tarefa..."><br><br>
         <button onclick="adicionar()">Adicionar Tarefa</button>
@@ -22,8 +24,8 @@
         function adicionar() {
             let valorTarefas = document.getElementById("adicionarTarefa").value;
             tarefas.push(valorTarefas);
-            
-           //document.getElementById('lista').innerHTML = tarefas
+
+            //document.getElementById('lista').innerHTML = tarefas
 
             const button = document.createElement("button");//criando botão
             button.textContent = "Concluir" // add nome do botão
@@ -32,21 +34,25 @@
             li.textContent = valorTarefas
 
             li.id = 'li' + idCount;
+            li.style.color = "green"
+            li.style.listStyleType = "none"
 
-            let VF = false; 
+            let VF = true;
 
             button.onclick = function () {
-                
+
                 let cor = document.getElementById(li.id);
-                
+
                 if (VF) {
                     cor.style.color = "red"
+                    cor.style.textDecoration = "line-through"
                     VF = false;
                 } else {
                     cor.style.color = "green"
+                    cor.style.textDecoration = "none"
                     VF = true;
                 }
-                  
+
             }
 
             colunaAcao.appendChild(li)
@@ -54,8 +60,11 @@
 
             idCount++;
 
+            let nomeLocalStorage = localStorage.setItem('nome', valorTarefas);
+            let valor = localStorage.getItem('nome')
+
         }
     </script>
 </body>
-</html>
 
+</html>
