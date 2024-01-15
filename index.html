@@ -55,13 +55,16 @@
 
             }
 
+            
+            let nomeLocalStorage = localStorage.setItem('nome', JSON.stringify(li.value));
+            let valor = localStorage.getItem('nome')
+
+
             colunaAcao.appendChild(li)
             colunaAcao.appendChild(button)
 
             idCount++;
 
-            let nomeLocalStorage = localStorage.setItem('nome', valorTarefas);
-            let valor = localStorage.getItem('nome')
 
         }
     </script>
