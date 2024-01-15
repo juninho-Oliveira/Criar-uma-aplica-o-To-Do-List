@@ -8,7 +8,7 @@
 <body>
     <main >
         <h1>To-Do List</h1>
-        <input type="text" id="adicionarTarefa" placeholder="Nome da tarefa..."><br><br>
+        <input type="text" id="adicionarTarefa" onfocus="this.value='';" placeholder="Nome da tarefa..."><br><br>
         <button onclick="adicionar()">Adicionar Tarefa</button>
         <h2 id="lista">Lista de tarefas</h2>
         <ul id="colunaAcao">
@@ -23,7 +23,7 @@
             let valorTarefas = document.getElementById("adicionarTarefa").value;
             tarefas.push(valorTarefas);
             
-           // document.getElementById('lista').innerHTML = tarefas
+           //document.getElementById('lista').innerHTML = tarefas
 
             const button = document.createElement("button");//criando botão
             button.textContent = "Concluir" // add nome do botão
@@ -34,7 +34,6 @@
             li.id = 'li' + idCount;
 
             let VF = false; 
-
 
             button.onclick = function () {
                 
@@ -54,6 +53,7 @@
             colunaAcao.appendChild(button)
 
             idCount++;
+
         }
     </script>
 </body>
